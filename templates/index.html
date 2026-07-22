@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicinal Leaf Detection</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        div {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        img {
+            margin-top: 10px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            max-width: 500px; /* Adjusted for smaller size */
+            max-height: 500px; /* Adjusted for smaller size */
+            width: auto;
+            height: auto;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin: 5px 0;
+        }
+
+        strong {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Medicinal Leaf Detection</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Upload and Predict</button>
+    </form>
+
+    {% if uploaded_image %}
+    <div>
+        <h2>Uploaded Image:</h2>
+        <img src="{{ uploaded_image }}" alt="Uploaded Image">
+    </div>
+    <div>
+        <h2>Prediction Result:</h2>
+        <p><strong>Predicted Leaf Name:</strong> {{ leaf_name }}</p>
+        <p><strong>Scientific Name:</strong> {{ scientific_name }}</p>
+        <p><strong>Usage:</strong> {{ usage }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>

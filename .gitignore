@@ -1,0 +1,4 @@
+Medicinal Leaf dataset/
+dataset_cache.pkl
+__pycache__/
+*.pyc
